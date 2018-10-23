@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+   <!-- COMPONENTES -->
+   <link rel="import" href="bower_components/webcomponentsjs/webcomponents-loader.js">
+   <link rel="import" href="src/example-one.html"></link>
+   <title>Example One</title>
+</head>
+<body>
+   <example-one 
+      number-one="5" 
+      number-two="20"
+      rest-val-one="30"
+      rest-val-two="20">
+
+      <div slot="show">
+         <h4>Hola soy un slot!</h4>
+         <ul>
+            <li>Mario</li>
+            <li>Joaquín</li>
+            <li>López</li>
+            <li>Barceinas</li>
+         </ul>
+      </div>
+
+   </example-one>
+</body>
+</html>

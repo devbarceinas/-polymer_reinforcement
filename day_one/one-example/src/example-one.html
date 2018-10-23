@@ -1,0 +1,68 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+
+<dom-module id="example-one">
+   <template>
+      <style>
+         .font {
+            font-family: Arial, Helvetica, sans-serif;
+         }
+      </style>
+
+      <input type="text" value="{{name::input}}"> 
+      <h4>Observers [[name]]</h4>
+      <p>
+         Valor nuevo
+         <div id="new"></div>
+      </p>
+      <p>
+         Valor anterior
+         <div id="old"></div>
+      </p>
+
+      <hr>
+
+      <h3>Slots</h3>
+      <slot name="show" class="font"></slot>
+
+   </template>
+
+   <script>
+      (function() {
+         class ExampleOne extends Polymer.Element {
+            static get is() { return 'example-one'; }
+            static get properties() {
+               return {
+                  // first example
+                  numberOne: { type: Number },
+                  numberTwo: { type: Number },
+                  fullSum: {
+                     type: Number,
+                     computed: '_setSum(numberOne, numberTwo)',
+                     reflectToAttribute: true
+                  },
+                  // second example
+                  name: {
+                     type: String,
+                     value: 'Mario',
+                     observer: '_changeName'
+                  }
+               };
+            }
+            
+            // first example
+            _setSum(numberOne, numberTwo) {
+               let sum = numberOne + numberTwo;
+               return parseInt(sum);
+            }
+
+            // second example
+            _changeName(newValue, oldValue) {
+               this.$.new.innerHTML = newValue;
+               this.$.old.innerHTML = oldValue;
+            }
+         }
+
+         customElements.define(ExampleOne.is, ExampleOne);
+      })();
+   </script>
+</dom-module>
