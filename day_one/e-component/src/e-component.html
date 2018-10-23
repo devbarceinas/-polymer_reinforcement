@@ -1,0 +1,33 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html"></link>
+
+<dom-module id="e-component">
+   <template>
+      <h2>Hola Mario Barceinas!!</h2>
+   </template>
+
+   <script>
+      (function() {
+         class EComponent extends Polymer.Element {
+            static get is() { return 'e-component'; }
+            static get properties() {
+               return {
+                  firstName: { type: String },
+                  lastName: { type: String },
+                  fullName: {
+                     type: String,
+                     computed: '_getFullName(firstName, lastName)',
+                     reflectToAttribute: true
+                  }
+               };
+            }
+
+            _getFullName(firstName, lastName) {
+               let nameComplete = `${firstName} ${lastName}`;
+               return nameComplete;
+            }
+         }
+
+         customElements.define(EComponent.is, EComponent);
+      })();
+   </script>
+</dom-module>
