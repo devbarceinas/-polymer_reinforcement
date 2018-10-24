@@ -1,0 +1,25 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="e-component">
+   <template>
+      <label for="One">One Label</label>
+      <input type="text" value="{{name::input}}">
+   </template>
+
+   <script>
+      class EComponet extends Polymer.Element {
+         static get is() { return 'e-component'; }
+         static get properties() {
+            return {
+               name: {
+                  type: String,
+                  notify: true,
+                  reflectToAttribute: true
+               }
+            };
+         }
+      }
+
+      customElements.define(EComponet.is, EComponet);
+   </script>
+</dom-module>

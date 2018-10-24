@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+   <!-- COMPONENT -->
+   <script src="bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+   <link rel="import" href="src/e-component.html">
+   <title>e component</title>
+</head>
+<body>
+   <label for="Second">Second Label</label>
+   <input type="text" id="native">
+   <e-component id="input"></e-component>
+
+   <script>
+      let input = document.querySelector('#input');
+      let native = document.querySelector('#native');
+
+      input.addEventListener('name-changed', function() {
+         native.setAttribute('value', this.getAttribute('name'));
+         console.info(native.getAttribute('value'));
+      });
+   </script>
+</body>
+</html>

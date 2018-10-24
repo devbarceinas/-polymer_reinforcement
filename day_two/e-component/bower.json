@@ -1,0 +1,23 @@
+{
+  "name": "e-component",
+  "homepage": "https://github.com/devbarceinas/-polymer_reinforcement",
+  "authors": [
+    "mariojoaquin.lopez.contractor <mariojoaquin.lopez.contractor@bbva.com>"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^2.0.0"
+  },
+  "devDependencies": {
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0"
+  },
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
