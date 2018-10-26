@@ -1,0 +1,45 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="style-component">
+  <template>
+    <style>
+      .alumno-59 {
+        background-color: red;
+      }
+      .alumno-6 {
+        background-color: yellow;
+      }
+    </style>
+    <ul>
+      <template is="dom-repeat" items="[[alumnos]]">
+        <li class$="[[validateScore(item.score)]]">Name: [[item.name]] | Score: [[item.score]]</li>
+      </template>
+    </ul>
+  </template>
+
+  <script>
+    class StyleComponent extends Polymer.Element {
+      static get is() { return 'style-component'; }
+      static get properties() {
+        return {
+          alumnos: {
+            type: Array,
+            value: []
+          }
+        };
+      }
+
+      validateScore(score) {
+        if (score <= 5.9) {
+          return 'alumno-59';
+        } else if (score >= 6) {
+          return 'alumno-6';
+        } else {
+          return 'Default';
+        }
+      }
+    }
+
+    customElements.define(StyleComponent.is, StyleComponent);
+  </script>
+</dom-module>

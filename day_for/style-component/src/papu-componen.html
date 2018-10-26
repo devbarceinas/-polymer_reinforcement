@@ -1,0 +1,29 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="style-component.html">
+
+<dom-module id="papu-component">
+  <template>
+    <style>
+    </style>
+    <style-component alumnos='[
+        {"name": "Mario", "score": 5.9},
+        {"name": "Alex", "score": 6},
+        {"name": "Alfredo", "score": 5.9},
+        {"name": "Damian", "score": 6}
+      ]'>
+    </style-component>
+  </template>
+
+  <script>
+    class PapuComponent extends Polymer.Element {
+      static get is() { return 'papu-component'; }
+      static get properties() {
+        return {
+
+        };
+      }
+    }
+
+    customElements.define(PapuComponent.is, PapuComponent);
+  </script>
+</dom-module>
