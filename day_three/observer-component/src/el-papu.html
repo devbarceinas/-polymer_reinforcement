@@ -1,0 +1,26 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="observer-component.html">
+
+<dom-module id="el-papu">
+   <template>  
+      <observer-component values-array="{{arrayValues}}"></observer-component>
+      <template is="dom-repeat" items="[[arrayValues]]">
+         <p>[[item]]</p>
+      </template>
+   </template>
+
+   <script>
+      class ElPapu extends Polymer.Element {
+         static get is() { return 'el-papu'; }
+         static get properties() {
+            return {
+               arrayValues: {
+                  type: Array
+               }
+            };
+         }
+      }
+
+      customElements.define(ElPapu.is, ElPapu);
+   </script>
+</dom-module>

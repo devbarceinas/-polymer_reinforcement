@@ -1,0 +1,72 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="crud-component">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      .container-form {
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+    <div class="container-form">
+      <input type="text" value="{{nameUser::input}}">
+      <button class="container-form__save" on-click="addUser">Save</button>
+    </div>
+    <div class="table-users">
+      <template is="dom-repeat" items="[[users]]">
+        <p on-click="countUser">
+          [[item.count]] : [[item.name]]
+          <button on-click="deleteUser">Delete</button>
+        </p>
+      </template>
+    </div>
+  </template>
+
+  <script>
+    (function() {
+
+      class CrudComponent extends Polymer.Element {
+        static get is() { return 'crud-component'; }
+        static get properties() {
+          return {
+            nameUser: { type: String },
+            users: {
+              type: Array,
+              value: () => [],
+              notify: true
+            }
+          };
+        }
+
+        addUser() {
+          this.push('users', {
+            name: this.nameUser, 
+            count: 0
+          });
+          this.set('nameUser', '');
+          // depecreado - this.shadowRoot.querySelector('#clean-input').value = "";
+        }
+
+        deleteUser(event) {
+          this.splice(
+            'users', 
+            event.model.index, 1
+          );
+        }
+
+        countUser(event) {
+          event.model.set(
+            'item.count',
+            event.model.item.count + 1
+          );
+        }
+      }
+
+      customElements.define(CrudComponent.is, CrudComponent);
+
+    })();
+  </script>
+</dom-module>

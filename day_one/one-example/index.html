@@ -13,7 +13,8 @@
 <body>
    <example-one 
       number-one="5" 
-      number-two="20">
+      number-two="20"
+      new-name="Mario">
 
       <div slot="show">
          <h4>Hola soy un slot!</h4>
@@ -26,5 +27,15 @@
       </div>
 
    </example-one>
+   <script>
+      let component = document.querySelector('example-one');
+      component.addEventListener('name-changed', (e) => {
+         console.log('Name change ', e.currentTarget.getAttribute('name'));
+      });
+
+      component.addEventListener('my-component-click', (e) => {
+         console.log('click');
+      });
+   </script>
 </body>
 </html>

@@ -1,0 +1,32 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="observer-component">
+   <template>
+      <input type="text" value="{{valor::input}}">
+   </template>
+
+   <script>
+      class ObserverComponent extends Polymer.Element {
+         static get is() { return 'observer-component'; }
+         static get properties() {
+            return {
+               valor: {
+                  type: String,
+                  observer: 'insert'
+               },
+               valuesArray: {
+                  type: Array,
+                  value: [],
+                  notify: true
+               }
+            };
+         }
+         
+         insert(newValue, oldValue) {
+            this.push('valuesArray', newValue);
+         }
+      }
+
+      customElements.define(ObserverComponent.is, ObserverComponent);
+   </script>
+</dom-module>
